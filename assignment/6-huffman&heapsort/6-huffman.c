@@ -16,13 +16,14 @@ Node* newNode(char data, int frequency) {
     return temp;
 }
 
-// 우선순위 큐 구현을 위한 함수들
+// 두 노드를 교환하는 함수
 void swapNodes(Node** a, Node** b) {
     Node* t = *a;
     *a = *b;
     *b = t;
 }
 
+// 힙 재구성 함수
 void minHeapify(Node* nodeArr[], int size, int idx) {
     int smallest = idx;
     int left = 2 * idx + 1;
@@ -40,6 +41,7 @@ void minHeapify(Node* nodeArr[], int size, int idx) {
     }
 }
 
+// 최소값 추출 및 힙 재구성
 Node* extractMin(Node* nodeArr[], int* size) {
     Node* temp = nodeArr[0];
     nodeArr[0] = nodeArr[*size - 1];
@@ -48,6 +50,7 @@ Node* extractMin(Node* nodeArr[], int* size) {
     return temp;
 }
 
+// 새 노드 삽입 및 힙 속성 유지
 void insertMinHeap(Node* nodeArr[], int* size, Node* node) {
     ++*size;
     int i = *size - 1;
@@ -66,7 +69,7 @@ void printHeap(Node* nodeArr[], int size) {
     printf("\n");
 }
 
-// 허프만 트리 구축 함수 (수정됨)
+// 허프만 트리 구축 함수
 Node* buildHuffmanTree(char characters[], int frequencies[], int size) {
     Node* nodeArr[size];
     int heapSize = 0;
@@ -77,6 +80,7 @@ Node* buildHuffmanTree(char characters[], int frequencies[], int size) {
         printHeap(nodeArr, heapSize);  // 각 원소 추가 후 힙 상태 출력
     }
 
+    // 가장 작은 빈도 두 개 추출 및 새 노드 생성
     while (heapSize > 1) {
         Node* left = extractMin(nodeArr, &heapSize);
         Node* right = extractMin(nodeArr, &heapSize);
@@ -112,6 +116,7 @@ void printCodes(Node* root, int arr[], int top) {
     }
 }
 
+// 허프만 코드 생성 함수
 void GenerateHuffmanCodes(char characters[], int frequencies[], int size) {
     Node* root = buildHuffmanTree(characters, frequencies, size);
     int arr[size], top = 0;

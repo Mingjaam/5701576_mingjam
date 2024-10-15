@@ -1,32 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
+// 두 값을 교환하는 함수
 void swap(int *a, int *b) {
     int temp = *a;
     *a = *b;
     *b = temp;
 }
 
+// 최대 힙 구축 함수
 void BuildMaxHeap(int inputData[], int n) {
     for (int i = 1; i <= n; i++) {
         int child = i - 1;
         while (child > 0) {
             int parent = (child - 1) / 2;
+            // 자식이 부모보다 크면 교환
             if (inputData[child] > inputData[parent]) {
                 swap(&inputData[child], &inputData[parent]);
             }
             child = parent;
         }
 
+        // 현재 상태 출력
         for (int j = 0; j < i; j++) {
             printf("%d ", inputData[j]);
         }
         printf("\n");
-
     }
 }
 
+// 힙 재정렬 함수
 void resortHeap(int inputData[], int n, int i) {
     int largest = i;
     int left = 2 * i + 1;
@@ -43,6 +46,7 @@ void resortHeap(int inputData[], int n, int i) {
     }
 }
 
+// 최대 힙 구축 및 정렬 함수
 void BuildMaxHeapAndSort(int inputData[], int n) {
     BuildMaxHeap(inputData, n);
     for (int i = n - 1; i > 0; i--) {
@@ -56,6 +60,7 @@ void BuildMaxHeapAndSort(int inputData[], int n) {
 
 }
 
+// 최대값 삭제 및 재정렬 함수
 void showDeleteMaxAndResort(int inputData[], int n) {
     if (n <= 0) {
         printf("mt.\n");
@@ -63,21 +68,26 @@ void showDeleteMaxAndResort(int inputData[], int n) {
     }
     int maxValue = inputData[0];
     
+    // 최소값 찾기
     int minIndex = 0;
     for (int i = 1; i < n; i++) {
         if (inputData[i] < inputData[minIndex]) {
             minIndex = minIndex;
         }
     }
+    // 최소값을 루트로 이동
     inputData[0] = inputData[minIndex];
     inputData[minIndex] = inputData[n-1];
     n--;
+    // 힙 재정렬
     resortHeap(inputData, n, 0);
 
+    // 현재 상태 출력
     for (int i = 0; i < n; i++) {
         printf("%d ", inputData[i]);
     }
     printf("\n");
+    // 재귀적으로 계속 삭제 및 재정렬
     if (n > 1) {
         showDeleteMaxAndResort(inputData, n);
     }
