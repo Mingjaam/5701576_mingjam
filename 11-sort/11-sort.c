@@ -4,20 +4,20 @@
 
 #define SWAP(x, y, t) ((t) = (x), (x) = (y), (y) = (t))
 #define SIZE 100
-
+// 랜덤 배열 생성 함수
 void generateRandomData(int list[]) {
     for (int i = 0; i < SIZE; i++) {
         list[i] = rand() % 1000;
     }
 }
-
+// 배열 출력 함수
 void print_list(int list[]) {
     for (int i = 0; i < SIZE; i++) {
         printf("%d ", list[i]);
     }
     printf("\n\n");
 }
-
+// 선택 정렬 함수
 void doSelectionSort(int list[]) {
     int i, j, min, temp;
     int step = 0;
@@ -43,7 +43,7 @@ void doSelectionSort(int list[]) {
     print_list(list);
 }
 
-
+// 삽입 정렬 평균 비교 횟수 함수
 int insertion_average(){
     srand(time(NULL));
     int totalCompare = 0;
@@ -64,7 +64,7 @@ int insertion_average(){
     }
     return (totalCompare / 20);
 }
-
+// 삽입 정렬 함수
 void doInsertionSort(int list[]) {
     int i, j, key;
     for (i = 1; i < SIZE; i++) {
@@ -78,7 +78,7 @@ void doInsertionSort(int list[]) {
     printf("Insertion Sort: ");
     print_list(list);
 }
-
+// 버블 정렬 평균 이동 횟수 함수
 int bubble_average(){
     srand(time(NULL));
     int totalMove = 0;
@@ -99,7 +99,7 @@ int bubble_average(){
     }
     return (totalMove / 20);
 }
-
+// 버블 정렬 함수
 void doBubbleSort(int list[]) {
     int i, j, temp;
     for (i = SIZE - 1; i > 0; i--) {
@@ -113,7 +113,7 @@ void doBubbleSort(int list[]) {
     printf("Bubble Sort: ");
     print_list(list);
 }
-
+// 메인 함수
 int main() {
     int randomData[SIZE];
     generateRandomData(randomData);
