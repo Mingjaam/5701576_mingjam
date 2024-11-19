@@ -1,6 +1,7 @@
     #include <stdio.h>
     #include <stdlib.h>
     #include <time.h>
+    #include <unistd.h>
 
     #define SIZE 100
     int comparisonCount = 0;
@@ -18,6 +19,7 @@
         for (int i = 0; i < SIZE; i++) {
             array[i] = rand() % 1000;
         }
+        sleep(1);
     }
 
     // 배열 출력 함수
