@@ -4,7 +4,7 @@
 
 #define ARRAY_SIZE 100
 
-
+// 랜덤 배열 생성 함수
 void generateRandomNumbers(int array1[], int array2[], int array3[]) {
     srand(time(NULL));  // 한 번만 시드 설정
     for (int i = 0; i < ARRAY_SIZE; i++) {
@@ -15,6 +15,7 @@ void generateRandomNumbers(int array1[], int array2[], int array3[]) {
     }
 }
 
+// 쉘 정렬 함수
 void doShellSort(int arr[], int divisor, int* compCount, int* moveCount) {
     *compCount = 0;
     *moveCount = 0;
@@ -56,6 +57,7 @@ void doShellSort(int arr[], int divisor, int* compCount, int* moveCount) {
     printf("\n");
 }
 
+// 삽입 정렬 함수
 void doInsertionSort(int arr[], int* compCount, int* moveCount) {
     *compCount = 0;
     *moveCount = 0;
