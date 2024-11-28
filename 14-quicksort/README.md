@@ -3,9 +3,9 @@
 반복적인 퀵소트를 구현하였습니다.
 
 ## 시각화
-![Quicksort 과정](./image copy 2.png)
-![Quicksort 파티셔닝](./image copy.png)
-![swap](./image copy 3.png)
+![Quicksort 과정](./image2.png)
+![Quicksort 파티셔닝](./image4.png)
+![swap](./image3.png)
 ![결과](./image.png)
 
 
